@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage[english]{babel}
+\usepackage{subfig}
+\usepackage{cite}
+\usepackage[nottoc,numbib]{tocbibind}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\geometry{paper=a4paper, left=15mm, right=15mm, top=15mm, bottom=15mm} 
+
+\begin{document}
+\begin{center}
+\begin{Large}
+DOPP Workplan - Group 29\\
+\end{Large} 
+\end{center}
+
+Serban ..., Fritz ..., Dennis ..., Tobias Slowiak, 01204691\\
+
+\textbf{Introduction} Our Group has decided for Question 21, which deals with the topic of nuclear energy.\\
+In the following, we draft a work plan for this project. We structured the work plan accoring to 
+the data science process discussed in the lecture.\\
+
+\textbf{Ask interesting Questions} We have the following basic questions:\\
+
+\textit{How has the use of nuclear energy evolved over time? How well does the use of nuclear
+energy correlate with changes in carbon emissions? Are there characteristics of a country
+that correlate with increases or decreases in the use of nuclear energy?}\\
+
+Additional Quesions regarding this topic, that we want to consider are:\\
+- \textcolor{red}{still missing.}\\
+
+We reserve the possibility to adapt these questions in the process.\\
+
+Concluding task: give a description in the Jupyterhub notebook on why we chose our Questions and why they are good questions.\\
+
+\textbf{Get the data} First, we will find some datasets until we feel like we have enough data to start the rest of the process.\\
+For a start, we will have a look at the following datasets:\\
+- Eurostat database: energy.\\
+- UN-data.\\
+- statista: Nuclear electricity generation worldwide from 1985 to 2021 (free?)\\
+\textcolor{red}{still find more possible sources. only the first 2 are from the list and they seem to be pretty poor :/}.\\
+
+\textcolor{red}{Additional thing: Is anyone familiar with kaggle kernels/wants to set one up?}\\
+
+In this step we will also clean the data and filter out what we need.
+This will also include handling missing values and outliers. Should we find inconsistencies in the data in the next step,
+we will come back to this step and threat them here. We might also find that we need some additional data, that is not directly
+connected to nuclear energy, then we also come back to this step and collect more data.\\
+
+Concluding task: Give an overview and description of the datasets in the Jupyterhub notebook. Also describe what was done to the data.\\ 
+
+\textbf{Explore the data} This step is intertwined with the previous step. We will Explore the data, make provisionary visualizations etc. to
+get a better feeling for what we are working with. Here we also have to think about if the necessary data is there to
+answer the questions.\\
+The question \textit{Are there characteristics of a country
+that correlate with increases or decreases in the use of nuclear energy?} is especially interesting here. We can find hints
+for what to model later in this step.\\
+
+Concluding task: Discussion.\\
+
+
+\textbf{Model the data} Here, especially the question \textit{How well does the use of nuclear
+energy correlate with changes in carbon emissions?} will be interesting for modelling. We will 
+have to be quite careful to work out the correlation, since the carbon emissions are determined by a multitude of factors.\\
+Also, the question \textit{Are there characteristics of a country
+that correlate with increases or decreases in the use of nuclear energy?} can be modelled here, where we will try to work out 
+correlations, that may have shown in the previous step.\\
+
+Concluding task: Discussion.\\
+
+
+\textbf{Communicate and visualize the results} The question \textit{How has the use of nuclear energy evolved over time?} will be answered here by visualizing different
+aspects of nuclear energy and how they evolved over time.\\
+
+Concluding task: Answer/Discuss the questions. Talk about how the work was spread between the members.\\
+Also make a 2-page PDF as stated in the exercise statement.\\
+Also pack the data in a zip file. And in case some of the datasets are too large, provide a \texttt{install\_data.txt} as 
+stated in the exercise statement.\\
+
+
+
+
+\end{document}
