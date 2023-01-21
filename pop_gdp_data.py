@@ -14,7 +14,12 @@ def load_popData(filepath):
     df=pd.read_excel(os.path.join(filepath, "Population.xlsx"), sheet_name="Estimates", header=16)
     df=df.loc[df["Type"]=="Country/Area"]
     df=df[["Region, subregion, country or area *", "ISO3 Alpha-code", "Year", 'Total Population, as of 1 January (thousands)', 'Life Expectancy at Birth, both sexes (years)']]
-    #print(df)
+    df=df.rename(columns={"Region, subregion, country or area *": "country"})
+    df["Year"]=df["Year"].astype(int)
+    
+    #df1=df1.loc[[df1["1950"]>=1000]]
+    df.to_csv(os.path.join(filepath, "PopReduced.csv"), index=True)
+    print(df)
     return df
 
 def main():    

@@ -1,4 +1,6 @@
 import pandas as pd
+import pathlib
+import os
 
 def load_energy_mix_data(csv_path):
     
@@ -79,7 +81,9 @@ def load_energy_mix_data(csv_path):
     df["Indicator"] = df["Indicator"].apply(lambda x: "Primary production" if (x=="PPRD") else x)
     return df
 
+pathToData=os.path.join(pathlib.Path(__file__).parent.resolve(), "DataSets")
 path_to_energy_mix_data = "DataSets/energy_mix.csv"
+path_to_energy_mix_data = os.path.join(pathToData, "energy_mix.csv")
 df = load_energy_mix_data(path_to_energy_mix_data)
 print(df.shape)
-print(df.head())
+print(df)
