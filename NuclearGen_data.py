@@ -25,7 +25,7 @@ countries=[
 
 ]
 
-def load_NuclearGenData(filepath):
+def load_NuclearGenData0(filepath):
     df=pd.read_excel(os.path.join(filepath, "bp-stats-review-2022-all-data.xlsx"), sheet_name="Nuclear Generation - TWh", header=2)
     df=df.rename(columns={"Terawatt-hours": "country"})
     
@@ -35,21 +35,39 @@ def load_NuclearGenData(filepath):
     
     return df
 
-def load_NuclearGenData(filepath):
+def load_NuclearGenData(filepath, countries):
     df=pd.read_excel(os.path.join(filepath, "bp-stats-review-2022-all-data.xlsx"), sheet_name="Nuclear Generation - TWh", header=2)
     df=df.rename(columns={"Terawatt-hours": "country"})
     
     df=df.set_index("country")
     df=df.loc[countries]
+    df=df.loc[:, 1965:2021]
+    df=df.stack()
     df=df.fillna(0.0)
     
     return df
+
+def load_CoalCons(filepath, countries):
+    df=pd.read_excel(os.path.join(filepath, "bp-stats-review-2022-all-data.xlsx"), sheet_name="Coal Consumption - EJ", header=2)
+    df=df.rename(columns={"Exajoules": "country"})
+    
+    df=df.set_index("country")
+    df=df.loc[countries]
+    df=df.loc[:, 1965:2021]
+    df=df.stack()
+    df=df.fillna(0.0)
+    
+    return df
+
+
+def plotNuclearGen(df):
+    df.plot()
 
 def main():    
     pathToData=os.path.join(pathlib.Path(__file__).parent.resolve(), "DataSets")
     #df=load_gdpData(pathToData)
-    df=load_NuclearGenData(pathToData)
-
+    #df=load_NuclearGenData(pathToData, countries)
+    df=load_CoalCons(pathToData, countries)
     print(df)
 
 if __name__=="__main__":

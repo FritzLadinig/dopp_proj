@@ -2,3 +2,4 @@ Population: https://population.un.org/wpp/Download/Standard/Population/
 https://population.un.org/wpp/Download/Files/1_Indicators%20(Standard)/EXCEL_FILES/1_General/WPP2022_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT_REV1.xlsx
 GDP: https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
 Energy mix: https://ec.europa.eu/eurostat/databrowser/view/NRG_BAL_S__custom_4360563/default/table?lang=en
+NuclearGen: https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html
