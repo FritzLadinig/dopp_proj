@@ -32,7 +32,7 @@ def load_gdpData(filepath, countries):
     df=df.rename(columns={"Country Name": "country"})
     df=df.set_index("country")
 
-    df=df.iloc[:,5:-1]
+    df=df.iloc[:,8:-1]
     
     df=df.rename(index={"United States": "US", "Venezuela, RB": "Venezuela", "Czechia": "Czech Republic", "Slovak Republic": "Slovakia", 
             "Turkiye": "Turkey", "Iran, Islamic Rep.": "Iran", "Egypt, Arab Rep.": "Egypt", "Korea, Rep.": "South Korea"})
@@ -40,8 +40,11 @@ def load_gdpData(filepath, countries):
     #print([cntry for cntry in countries if cntry in df.index])
     #print([cntry for cntry in countries if cntry not in df.index])
     df=df.loc[cntries]
-    df=df.dropna()
+    df=df.rename(columns={cols:int(cols) for cols in df.columns})
     df=df.stack()
+    df=df.to_frame()
+    df=df.rename(columns={df.columns[0]: "GPD"})
+    df.index.set_names(["country", "Year"], inplace=True)
     #print(df)
     return df
 
@@ -63,11 +66,11 @@ def load_popRedData(filepath, countries):
     df=df.rename(index={"United States": "US", 'United States of America': "US", "Venezuela, RB": "Venezuela",  'Venezuela (Bolivarian Republic of)': "Venezuela", "Czechia": "Czech Republic", "Slovak Republic": "Slovakia", 
             "Turkiye": "Turkey", 'Türkiye': "Turkey", "Iran, Islamic Rep.": "Iran", 'Iran (Islamic Republic of)': "Iran", "Egypt, Arab Rep.": "Egypt", 
             "Korea, Rep.": "South Korea", 'Republic of Korea': "South Korea", 'Viet Nam': "Vietnam"})
-    cntries=list(set(cntry for cntry in df.index if cntry in countries))
-    #print(cntries)
+    cntries=list(set(cntry[0] for cntry in df.index if cntry[0] in countries))
+    
     df=df.drop(columns=["ISO3 Alpha-code"])
     
-    df=df.loc(cntries)
+    df=df.loc[cntries]
     return df
 
 def main():    

@@ -43,6 +43,9 @@ def load_NuclearGenData(filepath, countries):
     df=df.loc[countries]
     df=df.loc[:, 1965:2021]
     df=df.stack()
+    df=df.to_frame()
+    df=df.rename(columns={df.columns[0]: 'Nuclear Generation - TWh'})
+    df.index.set_names(["country", "Year"], inplace=True)
     df=df.fillna(0.0)
     
     return df
@@ -55,6 +58,9 @@ def load_CoalCons(filepath, countries):
     df=df.loc[countries]
     df=df.loc[:, 1965:2021]
     df=df.stack()
+    df=df.to_frame()
+    df=df.rename(columns={df.columns[0]: "Coal consumption - EJ"})
+    df.index.set_names(["country", "Year"], inplace=True)
     df=df.fillna(0.0)
     
     return df
